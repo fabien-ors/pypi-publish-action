@@ -4,7 +4,7 @@ author: 'Fabien Ors'
 
 inputs:
   repo:
-    description: 'The repository ('pypi' or 'testpypi')
+    description: 'The repository ("pypi" or "testpypi")'
     default: "pypi"
   username:
     description: 'Username for the repository'
