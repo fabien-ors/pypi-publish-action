@@ -28,7 +28,8 @@ runs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install twine
-
+      shell: bash
+      
     - name: Upload Python packages (all artifacts)
       # For join_by function: https://stackoverflow.com/a/17841619/3952924
       run : python -m twine upload download_artifacts/*/${{ inputs.pattern }}
