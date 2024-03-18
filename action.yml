@@ -32,7 +32,10 @@ runs:
       
     - name: Upload Python packages (all artifacts)
       # For join_by function: https://stackoverflow.com/a/17841619/3952924
-      run : python -m twine upload download_artifacts/${{ inputs.pattern }}
+      run : |
+        ls download_artifacts
+        ls download_artifacts/${{ inputs.pattern }}
+        python -m twine upload download_artifacts/${{ inputs.pattern }}/*
       env:
         TWINE_USERNAME: ${{ inputs.username }}
         TWINE_PASSWORD: ${{ inputs.password }}
