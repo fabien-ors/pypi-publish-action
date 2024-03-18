@@ -66,7 +66,7 @@ Build Python packages under Windows and publish them to PyPi server
         - uses: fabien-ors/pypi-publish-action@v1
           with:
             repo: pypi
-            username: ${{ secrets.__token__ }}
+            username: ${{ secrets.PYPI_USERNAME }}
             password: ${{ secrets.PYPI_PWD }}
 
 
