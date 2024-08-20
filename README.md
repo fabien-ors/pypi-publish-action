@@ -1,10 +1,12 @@
 # pypi-publish-action
-Simple github action to publish Python packages in PyPi repository using twine. This action assumes that all the Python packages (source or binary) have been uploaded through upload-artifact action.
+Simple github action to publish Python packages in PyPi repository using twine. This action assumes that all the Python packages (source or binary) have been uploaded through upload-artifact v4 action.
 
 I made this following this guide :
 https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 
-**Important**: Only support **Linux** docker container. But if you want to publish **Windows** or **Mac** R binary packages, the idea is to build under **Windows**/**Mac** and publish under **Linux** using this action (see usage).
+**Important**:
+- Only support **Linux** Github runner. But if you want to publish **Windows** or **Mac** R binary packages, the idea is to build under **Windows**/**Mac** and publish under **Linux** using this action (see usage).
+- Artifacts are uploaded/downloaded using v4 version of upload-artifact and download-artifact Github actions
 
 ## Requirements
 - The repository (either 'pypi' or 'testpypi')
