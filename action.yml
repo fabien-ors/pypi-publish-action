@@ -12,7 +12,7 @@ inputs:
   password:
     description: 'Password for the repository'
   pattern:
-    description: 'File name pattern filter'
+    description: 'Artifact name pattern filter'
     default: "*"
     
 runs:
