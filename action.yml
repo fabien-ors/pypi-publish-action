@@ -14,7 +14,13 @@ inputs:
   pattern:
     description: 'Artifact name pattern filter'
     default: "*"
-    
+  verbose:
+    description: 'Activate verbose mode'
+    default: false
+
+env:
+  VERBOSE: ${{ inputs.verbose }} == true && echo "--verbose" || echo ""
+
 runs:
   using: "composite"
   steps:
@@ -35,7 +41,7 @@ runs:
       run : |
         ls download_artifacts
         ls download_artifacts/${{ inputs.pattern }}
-        python -m twine upload download_artifacts/${{ inputs.pattern }}/*
+        python -m twine upload ${{ env.VERBOSE }} download_artifacts/${{ inputs.pattern }}/*
       env:
         TWINE_USERNAME: ${{ inputs.username }}
         TWINE_PASSWORD: ${{ inputs.password }}
