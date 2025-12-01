@@ -18,9 +18,6 @@ inputs:
     description: 'Activate verbose mode'
     default: false
 
-env:
-  VERBOSE: ${{ inputs.verbose }} == true && echo "--verbose" || echo ""
-
 runs:
   using: "composite"
   steps:
@@ -46,6 +43,7 @@ runs:
         TWINE_USERNAME: ${{ inputs.username }}
         TWINE_PASSWORD: ${{ inputs.password }}
         TWINE_REPOSITORY: ${{ inputs.repo }}
+        VERBOSE: ${{ inputs.verbose }} == true && echo "--verbose" || echo ""
       shell: bash
 
 
