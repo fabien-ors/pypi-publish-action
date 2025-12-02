@@ -52,7 +52,7 @@ Build Python packages under Windows and publish them to PyPi server
             $PKG_PATH = Get-ChildItem -Path "dist/*" -File
             echo "MY_PKG=$PKG_PATH" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf8 -Append
     
-        - uses: actions/upload-artifact@v3
+        - uses: actions/upload-artifact@v4
           # Use specific artifact identifier for publishing all Python versions
           with:
             name: windows-package-${{matrix.python_version}}
@@ -65,7 +65,7 @@ Build Python packages under Windows and publish them to PyPi server
         runs-on: ubuntu-latest
         
         steps:
-        - uses: fabien-ors/pypi-publish-action@v1
+        - uses: fabien-ors/pypi-publish-action@v3
           with:
             repo: pypi
             username: ${{ secrets.PYPI_USERNAME }}
